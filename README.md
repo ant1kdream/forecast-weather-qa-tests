@@ -1,28 +1,22 @@
-# forecast-weather-qa
+# forecast-weather-qa-tests
 
-Imagine you have a commandline app to show tomorrow's forecast using public API: https://www.metaweather.com/api/
+Tests for commandline app to show tomorrow's forecast using public API: https://www.metaweather.com/api/
 
-Sample output:
+Originally used app is here https://github.com/uryuk/forecast-weather-qa
 
-```
-python weather.py dubai
+## Notes
+* Tests do not affect the way how app is running, originally using args and stdout
+* Test setup for each test is done with dependencies of fixtures
+* forecast fixture intercept stdout and prevent sys.exit depending on test case
+* mock_args fixture allows to parametrize sys.args if needed. If not default param for city fixture is 'Dubai'
 
-Tomorrow's (2021-09-29) weather in Dubai
-
-Light Cloud 
-Temp: 35.03 °C
-Min: 29.87 °C
-Max: 35.84 °C
-Wind speed: 6.7 m/s
-Humidity: 59 %
-Air pressure: 1005.0 mbar
+## Tests can be launched with command:
 
 ```
+pytest tests/functional_test.py -s -v 
 
-## Task 
-* How will you test the app? Write several automated tests to prove the correct work of application.
-* Ideally, tests should not touch the real service and work without the Internet.
-* Bonus task. Create CI pipeline with GitHub Actions or any alternative.
+22 passed in 21.41s
+```
 
 ### Install dependencies
 
